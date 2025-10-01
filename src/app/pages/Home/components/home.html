@@ -1,0 +1,22 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to <span>MyStore</span></h1>
+        <p>Discover the latest products with amazing deals.</p>
+        <button class="btn-primary" routerLink="/AllProducts">Shop Now</button>
+    </div>
+</section>
+
+<section class="featured">
+    <h2>Featured Products</h2>
+
+    <div *ngIf="loading">Loading products...</div>
+
+    <div class="products-grid" *ngIf="!loading">
+        <div class="product-card" *ngFor="let product of products">
+            <img height="200" width="200" [src]=" product.image " [alt]="product.title " />
+            <h3>{{ product.title | slice:0:20 }}...</h3>
+            <p>${{ product.price }}</p>
+            <button class="btn-outline" [routerLink]="['/product', product.id]">View</button>
+        </div>
+    </div>
+</section>

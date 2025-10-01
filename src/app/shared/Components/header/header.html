@@ -1,0 +1,44 @@
+<nav class="floating-navbar">
+    <div class="logo" routerLink="">Online Store</div>
+
+    <ul class="nav-links">
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="/AllProducts">Products</a></li>
+        <li><a routerLink="/Carts">Cart</a></li>
+    </ul>
+
+    <div class="nav-actions">
+
+        <button class="icon-btn wishlist-icon" [routerLink]="'wishlist'">
+  <i class="fa fa-heart"></i>
+  <span class="badge">{{ wishlist.count() }}</span>
+</button>
+
+
+
+
+        <button class="icon-btn" routerLink="/Carts"><i id="cart-icon" class="fa fa-shopping-bag"></i> <span class="badge" *ngIf="cartService.cartCount() > 0">{{ cartService.cartCount() }}</span>
+    </button>
+
+        <button class="theme-toggle" (click)="toggleTheme()">
+      <i [ngClass]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
+
+
+
+
+        <!-- if user not logged in -->
+        <button *ngIf="!auth.isLoggedIn()" class="signup-btn" routerLink="/signup">
+      Sign Up
+    </button>
+        <!-- if user is logged in -->
+        <div *ngIf="auth.isLoggedIn()" class="user-circle" (click)="toggleDropdown($event)">
+            <!--34an lazm ageb al char mn al (username)  mn object (user)-->
+            {{ auth.getUser()?.username?.[0] | uppercase }}
+
+            <div class="dropdown">
+                <button (click)="logOut()">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>

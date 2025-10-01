@@ -1,0 +1,110 @@
+.product-details {
+    margin: 120px 50px;
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    font-family: var(--mat-sys-plain-font-family, 'Segoe UI', sans-serif);
+    background: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s, color 0.3s;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.info {
+    flex: 2;
+}
+
+.info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--mat-sys-on-surface);
+}
+
+.category {
+    color: var(--mat-sys-on-surface-variant);
+    font-size: 0.98rem;
+    margin-bottom: 20px;
+}
+
+.description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--mat-sys-primary);
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--mat-sys-primary), #00c853);
+    color: #fff;
+    color: var(--mat-sys-on-primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 200, 83, 0.25);
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+.back-link {
+    margin: 170px 0px 170px 0px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--mat-sys-primary), #00c853);
+    color: var(--mat-sys-on-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 200, 83, 0.25);
+}

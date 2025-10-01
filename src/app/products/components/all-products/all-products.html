@@ -1,0 +1,41 @@
+<section class="all-products">
+    <h1>All Products</h1>
+
+    <div class="search-box">
+        <input type="text" [(ngModel)]="searchQuery" (input)="onSearchChange()" placeholder="Search for products..." />
+    </div>
+
+
+    <div class="filters">
+        <button class="filter-btn" [ngClass]="{ 'active': activeCategory === 'all' }" (click)="filterByCategory('all')">All</button>
+        <button class="filter-btn" *ngFor="let cat of categories" [ngClass]="{ 'active': activeCategory === cat }" (click)="filterByCategory(cat)">{{ cat | titlecase }}</button>
+    </div>
+
+    <div *ngIf="loading" class="loading">Loading products...</div>
+
+    <div class="products-grid" *ngIf="!loading">
+        <div class="product-card" *ngFor="let product of filteredProducts">
+
+
+            <button class="wishlist-btn" title="Add to wishlist" (click)="toggleWishlist(product, $event)">
+        <i [class.fas]="wishlist.isInWishlist(product.id)" [class.far]="!wishlist.isInWishlist(product.id)"
+          class="fa-heart"></i>
+      </button>
+
+            <img width=" 200 " height="200 " [src]="product.image " [alt]="product.title " />
+            <h3>{{ product.title | slice: 0: 25 }}...</h3>
+            <p class="price ">${{ product.price }}</p>
+            <div class="actions ">
+                <button class=" btn-outline " [routerLink]="[ '/product', product.id] ">View</button>
+                <button class="btn-primary " (click)="addToCart(product, $event) ">Add to Cart</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="pagination" *ngIf="totalPages > 1">
+        <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Prev</button>
+        <button *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="currentPage === i + 1" (click)="goToPage(i + 1)">{{ i + 1 }}</button>
+        <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+
+</section>

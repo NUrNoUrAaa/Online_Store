@@ -1,0 +1,21 @@
+<div class="wishlist-page">
+    <h2>My Wishlist</h2>
+
+    <div *ngIf="wishlist.count() === 0" class="empty">
+        Your wishlist is empty — add products you love ❤️
+    </div>
+
+    <div class="list" *ngIf="wishlist.count() > 0">
+        <div class="item" *ngFor="let p of wishlist.getAll()">
+            <img [src]="p.image" [alt]="p.title" />
+            <div class="meta">
+                <div class="title">{{ p.title }}</div>
+                <div class="price">${{ p.price }}</div>
+                <div class="actions">
+                    <a [routerLink]="['/wishlist/product', p.id]" class="btn-outline">View</a>
+                    <button class="btn-primary" (click)="wishlist.remove(p.id)">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

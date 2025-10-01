@@ -1,0 +1,42 @@
+<div class="overlay">
+    <div class="modal">
+        <div class="close">
+            <button (click)="goHome()">✖</button>
+        </div>
+
+        <div class="top">
+            <div class="mode-toggle">
+                <button class="active" routerLink="/login">Log in</button>
+                <button routerLink="/signup">Sign up</button>
+            </div>
+        </div>
+
+
+
+        <h2>Log In</h2>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <div class="row">
+                <input formControlName="username" placeholder="Username" />
+            </div>
+
+
+
+            <div class="row">
+                <input type="password" formControlName="password" placeholder="Password" />
+            </div>
+
+            <div *ngIf="error" class="error">{{ error }}</div>
+
+            <button class="primary" type="submit" [disabled]="loading">
+              {{ loading ? 'Please wait...' : 'Log In' }}
+             </button>
+
+            <p class="small">
+                Don't have an account?
+                <a routerLink="/signup">Sign Up</a>
+            </p>
+        </form>
+    </div>
+</div>
