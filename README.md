@@ -5,7 +5,12 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## 🌐 Live Demo
 
 You can view the live version of the app here:  
+<<<<<<< HEAD
 👉 https://onlinestorebyangular.netlify.app
+=======
+👉 [Focus Flow App on GitHub Pages](https://nurnouraaa.github.io/Store/)
+
+>>>>>>> 854827b (update)
 
 ## Development server
 
